@@ -30,6 +30,10 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp",(err,db)=>{
   }
   console.log("connected to MongoDB server");
 
+  db.collection("Todos").deletemany({text:"To lunch"}).then((result)=>{
+    console.log(result);
+  });
+
 
 
 // db.collection("Todos").find().count().then((count)=>{
@@ -37,9 +41,9 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp",(err,db)=>{
 // },(err)=>{
 //   console.log("Unable to find todos",err);
 // });
-db.collection("Users").find({name:"Henry"}).toArray().then((docs)=>{
-  console.log(JSON.stringify(docs,undefined,2));
-});
+// db.collection("Users").find({name:"Henry"}).toArray().then((docs)=>{
+//   console.log(JSON.stringify(docs,undefined,2));
+// });
 
 
 });
